@@ -1,8 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'stringfog'
 }
-
+import com.github.megatronking.stringfog.plugin.kg.RandomKeyGenerator
+import com.github.megatronking.stringfog.plugin.StringFogMode
+stringfog {
+    implementation 'com.github.megatronking.stringfog.xor.StringFogImpl'
+    enable true
+    kg new RandomKeyGenerator()
+    mode StringFogMode.base64
+}
 android {
     namespace 'com.se.dr.bo.seconddrawingboard'
     compileSdk 34
@@ -43,7 +51,7 @@ android {
 }
 
 dependencies {
-
+    implementation 'com.github.megatronking.stringfog:xor:4.0.1'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.10.0'
