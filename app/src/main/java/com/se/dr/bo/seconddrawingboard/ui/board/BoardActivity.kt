@@ -18,9 +18,10 @@ import com.se.dr.bo.seconddrawingboard.utils.MMKVStorage
 import com.se.dr.bo.seconddrawingboard.wight.CustomDialogFragment
 import com.se.dr.bo.seconddrawingboard.wight.Draw
 import com.se.dr.bo.seconddrawingboard.wight.DrawBoardView
-import com.se.dr.bo.seconddrawingboard.wight.DrawBoardView.DrawMode.DRAW_CIRCLE
-import com.se.dr.bo.seconddrawingboard.wight.DrawBoardView.DrawMode.DRAW_PATH
-import com.se.dr.bo.seconddrawingboard.wight.DrawBoardView.DrawMode.ERASER
+import com.se.dr.bo.seconddrawingboard.wight.DrawBoardView.DrawMode.Companion.DRAW_CIRCLE
+import com.se.dr.bo.seconddrawingboard.wight.DrawBoardView.DrawMode.Companion.DRAW_PATH
+import com.se.dr.bo.seconddrawingboard.wight.DrawBoardView.DrawMode.Companion.ERASER
+
 
 class BoardActivity : BaseActivity<ActivityBoardBinding, BoardViewModel>(
     R.layout.activity_board,
@@ -63,7 +64,7 @@ class BoardActivity : BaseActivity<ActivityBoardBinding, BoardViewModel>(
         binding.imgGone.setOnClickListener {
             if (isSave) {
                 binding.openLoad = true
-                viewModel.saveLocalBoard(imageName, binding.boardView.imageBitmap, finishFun = {
+                viewModel.saveLocalBoard(imageName, binding.boardView.imageBitmap!!, finishFun = {
                     viewModel.navigateToFinish(it, this)
                     binding.openLoad = false
                 })

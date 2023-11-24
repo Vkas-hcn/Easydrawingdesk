@@ -60,7 +60,6 @@ object CloakFun {
 
     @Throws(IOException::class)
     fun getParams2(urlString: String, params: Map<String, String>): String? {
-        Log.e("TAG", "参数: ${params["towel"]}")
         val url = URL(urlString + "?" + encodeParams(params))
         val urlConnection = url.openConnection() as HttpURLConnection
         try {
