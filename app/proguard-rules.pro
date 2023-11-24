@@ -19,3 +19,33 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# 混淆的压缩比例，0-7
+-optimizationpasses 5
+# 指定不去忽略非公共的库的类的成员
+-dontskipnonpubliclibraryclassmembers
+# 指定混淆是采用的算法
+-optimizations !code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*
+# 指定外部模糊字典 proguard-chinese.txt 改为混淆文件名，下同
+-obfuscationdictionary proguard-1il.txt
+# 指定class模糊字典
+-classobfuscationdictionary proguard-1il.txt
+# 指定package模糊字典
+-packageobfuscationdictionary proguard-1il.txt
+
+
+
+-dontwarn com.jeremyliao.liveeventbus.**
+-dontwarn androidx.lifecycle.LiveData
+-keep class androidx.lifecycle.LiveData { *; }
+-keep class androidx.lifecycle.LifecycleRegistry { *; }
+-keep class androidx.arch.core.internal.SafeIterableMap { *; }
+#-keep class com.example.shadowdemo.constant.Constant {*;}
+#保留注解，如果不添加改行会导致我们的@Keep注解失效
+-keepattributes *Annotation*
+
+-dontwarn android.webkit.WebView
+-dontwarn android.net.http.SslError
+-dontwarn android.webkit.WebViewClient
+-keep public class android.webkit.WebView
+-keep public class android.net.http.SslError
+-keep public class android.webkit.WebViewClient
