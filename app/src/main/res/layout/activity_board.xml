@@ -192,7 +192,7 @@
                     android:layout_height="48dp"
                     android:layout_marginTop="12dp"
                     android:scaleType="centerCrop"
-                    android:src="@{selectedType ==5 ? @drawable/ic_g_2 : @drawable/ic_g_1}"
+                    android:src="@{selectedType ==5 ? @drawable/ic_c_2 : @drawable/ic_c_1}"
                     app:layout_constraintEnd_toEndOf="@+id/img_g"
                     app:layout_constraintStart_toStartOf="@+id/img_g"
                     app:layout_constraintTop_toBottomOf="@+id/img_g" />
